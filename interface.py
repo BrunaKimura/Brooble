@@ -5,22 +5,25 @@ class Application:
     def __init__(self, master=None):
         self.fontePadrao = ("Arial", "10")
         self.primeiroContainer = Frame(master)
-        self.primeiroContainer["pady"] = 10
+        self.primeiroContainer["pady"] = 200
+        self.primeiroContainer.configure(background='white')
         self.primeiroContainer.pack()
   
         self.segundoContainer = Frame(master)
         self.segundoContainer["padx"] = 20
+        self.segundoContainer.configure(background='white')
         self.segundoContainer.pack()
   
         self.quartoContainer = Frame(master)
         self.quartoContainer["pady"] = 20
+        self.quartoContainer.configure(background='white')
         self.quartoContainer.pack()
   
-        self.titulo = Label(self.primeiroContainer, text="Brooble")
+        self.titulo = Label(self.primeiroContainer, bg="white", text="Brooble")
         self.titulo["font"] = ("Arial", "10", "bold")
         self.titulo.pack()
   
-        self.nomeLabel = Label(self.segundoContainer,text="Pesquisa ", font=self.fontePadrao)
+        self.nomeLabel = Label(self.segundoContainer,text="Pesquisa ", font=self.fontePadrao, bg="white")
         self.nomeLabel.pack(side=LEFT)
   
         self.nome = Entry(self.segundoContainer)
@@ -34,9 +37,7 @@ class Application:
         self.buscar["width"] = 12
         self.buscar["command"] = self.buscaimg
         self.buscar.pack()
-  
-        self.mensagem = Label(self.quartoContainer, text="", font=self.fontePadrao)
-        self.mensagem.pack()
+
     
     def buscaimg(self):
         pesquisa = self.nome.get()
@@ -45,5 +46,7 @@ class Application:
   
   
 root = Tk()
+root.geometry("700x700")
+root.configure(background='white')
 Application(root)
 root.mainloop()

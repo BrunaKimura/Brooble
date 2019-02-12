@@ -1,16 +1,18 @@
 from tkinter import *
+# import ImageTk
+from PIL import Image
 import brooble
   
 class Application:
     def __init__(self, master=None):
         self.fontePadrao = ("Arial", "10")
         self.primeiroContainer = Frame(master)
-        self.primeiroContainer["pady"] = 200
+        self.primeiroContainer["pady"] = 50
         self.primeiroContainer.configure(background='white')
         self.primeiroContainer.pack()
   
         self.segundoContainer = Frame(master)
-        self.segundoContainer["padx"] = 20
+        self.segundoContainer["padx"] = 10
         self.segundoContainer.configure(background='white')
         self.segundoContainer.pack()
   
@@ -18,8 +20,10 @@ class Application:
         self.quartoContainer["pady"] = 20
         self.quartoContainer.configure(background='white')
         self.quartoContainer.pack()
-  
-        self.titulo = Label(self.primeiroContainer, bg="white", text="Brooble")
+
+        self.image = PhotoImage(file='logo.png')
+        self.img = self.image.subsample(2, 2)
+        self.titulo = Label(self.primeiroContainer, bg="white", image=self.img)
         self.titulo["font"] = ("Arial", "10", "bold")
         self.titulo.pack()
   
